@@ -16,10 +16,10 @@ VolcanoPlot <- setClass("VolcanoPlot",
                                    plotdata="list"))
 
 setMethod("show", "VolcanoPlot", function(object) {
-	if (is.ggplot) {
-		(object@plots$volcano)
+	if (is.ggplot(object@plots$volcano)) {
+		print(object@plots$volcano)
 		} else {
-		cat("This is an object of class Volcano") 
+		cat("This is an object of class Volcano")
 	}
 })
-	 
+
