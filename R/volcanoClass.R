@@ -15,4 +15,11 @@ VolcanoPlot <- setClass("VolcanoPlot",
                                    sigGenes = "list",
                                    plotdata="list"))
 
-setMethod("show", "VolcanoPlot", function(object) {print("Volcano")} )
+setMethod("show", "VolcanoPlot", function(object) {
+	if (is.ggplot) {
+		(object@plots$volcano)
+		} else {
+		cat("This is an object of class Volcano") 
+	}
+})
+	 
