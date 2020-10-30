@@ -14,7 +14,7 @@ plotVolcano <- function(volcanoClass, Names=FALSE, pThres=0.05, fcThres=2, PRINT
                        aes(x=logFC,
                            y= -log(Sig,10),
                            color=Colour)) +
-                geom_point(size=1, shape=20) +
+                geom_point() +
                 guides(colour = guide_legend(override.aes = list(size=5))) +
                 labs(x="logFC", y="-log10(p value)") +
                 theme_classic() +
