@@ -17,7 +17,6 @@ BuildVolcanoData <- function(volcanoClass, SigName="padj",FCName="log2foldchange
                 ## Set rownames to gene IDs
                 'rownames<-'(rownames(volcanoClass@DEGresults))
         if ( ! geneName==FALSE) {
-                print("Storing genenames")
                 volcanoClass@plotdata$data$geneName <- volcanoClass@DEGresults[,geneName]
         }
         volcanoClass@plotdata$data$Colour <-
