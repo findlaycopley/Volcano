@@ -29,6 +29,7 @@ volcanoPlot <- function (DGE, Names=FALSE, SigName="padj",FCName="log2foldchange
                                    Names=Names,
                                    pThres=pThres,
                                    fcThres=fcThres,
-                                   PRINT=PRINT)
+                                   PRINT=PRINT,
+                                  geneName = geneName)
         volcanoPlot
 }
