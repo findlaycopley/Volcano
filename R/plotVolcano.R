@@ -39,6 +39,16 @@ plotVolcano <- function(volcanoClass, Names=FALSE, pThres=0.05, fcThres=2, PRINT
                         geom_hline(yintercept = -log(pThres,10),
                                    colour="darkgrey",
                                    linetype="dashed") }
+        if ( ! Names == FALSE) {
+                volcanoClass@plotdata$label <- subset(volcanoClass@plotdata$data, geneNames %in% Names)
+                volcanoClass@plots$volcano <- volcanoClass@plots$volcano +
+                        geom_label_repel(data = volcanoClass@plotdata$label,
+                                         aes(x=logFC,y=-log(Sig,10),
+                                             label=geneNames),
+                                         show.legend = FALSE,
+                                         inherit.aes = FALSE,
+                                         size=3)
+                }
         if (PRINT) {
                 print(volcanoClass@plots$volcano) }
         volcanoClass
