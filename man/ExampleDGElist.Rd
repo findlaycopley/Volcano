@@ -4,7 +4,9 @@
 \name{ExampleDGElist}
 \alias{ExampleDGElist}
 \title{Create The Mutation Plot}
-\format{An object of class \code{data.frame} with 15000 rows and 2 columns.}
+\format{
+An object of class \code{data.frame} with 15000 rows and 2 columns.
+}
 \usage{
 ExampleDGElist
 }

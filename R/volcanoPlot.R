@@ -17,13 +17,14 @@ ExampleDGElist <- cbind("padj" = sample(seq(0,1,0.0001), 15000, replace =TRUE),
         as.data.frame() %>%
         column_to_rownames("Gene")
 
-volcanoPlot <- function (DGE, Names=FALSE, SigName="padj",FCName="log2foldchange", pThres=0.05, fcThres=2, PRINT=TRUE) {
+volcanoPlot <- function (DGE, Names=FALSE, SigName="padj",FCName="log2foldchange", pThres=0.05, fcThres=2, PRINT=TRUE, geneName = FALSE) {
         volcanoPlot <- VolcanoPlot(DEGresults = DGE)
         volcanoPlot <- BuildVolcanoData(volcanoPlot,
                                         SigName,
                                         FCName=FCName,
                                         pThres=pThres,
-                                        fcThres=fcThres)
+                                        fcThres=fcThres,
+                                        geneName)
         volcanoPlot <- plotVolcano(volcanoPlot,
                                    Names=Names,
                                    pThres=pThres,

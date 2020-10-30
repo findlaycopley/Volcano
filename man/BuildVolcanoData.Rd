@@ -9,7 +9,8 @@ BuildVolcanoData(
   SigName = "padj",
   FCName = "log2foldchange",
   pThres = 0.05,
-  fcThres = 2
+  fcThres = 2,
+  geneName = FALSE
 )
 }
 \arguments{

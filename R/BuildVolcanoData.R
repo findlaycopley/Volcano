@@ -9,13 +9,16 @@
 #' @examples
 #' BuildVolcanoData(volcanoClass, SigName="padj",FCName="log2foldchange", pThres=0.05, fcThres=2)
 
-BuildVolcanoData <- function(volcanoClass, SigName="padj",FCName="log2foldchange", pThres=0.05, fcThres=2) {
+BuildVolcanoData <- function(volcanoClass, SigName="padj",FCName="log2foldchange", pThres=0.05, fcThres=2, geneName = FALSE) {
         ## Set up dataframe of sig values and fold change with names Sig and logFC
         volcanoClass@plotdata$data <- cbind("Sig" = volcanoClass@DEGresults[,SigName] %>% as.character() %>% as.numeric(),
                                             "logFC" = volcanoClass@DEGresults[,FCName] %>% as.character() %>% as.numeric()) %>%
                 as.data.frame() %>%
                 ## Set rownames to gene IDs
                 'rownames<-'(rownames(volcanoClass@DEGresults))
+        if (geneName) {
+                volcanoClass@plotdata$data$geneName <- volcanoClass@DEGresults[,geneName]
+        }
         volcanoClass@plotdata$data$Colour <-
                 ## Check if below P threshold
                 ifelse(volcanoClass@plotdata$data$Sig <= pThres,
