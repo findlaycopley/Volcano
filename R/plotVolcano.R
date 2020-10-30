@@ -44,7 +44,7 @@ plotVolcano <- function(volcanoClass, Names=FALSE, pThres=0.05, fcThres=2, PRINT
                 volcanoClass@plots$volcano <- volcanoClass@plots$volcano +
                         geom_label_repel(data = volcanoClass@plotdata$label,
                                          aes(x=logFC,y=-log(Sig,10),
-                                             label=geneNames),
+                                             label=geneName),
                                          show.legend = FALSE,
                                          inherit.aes = FALSE,
                                          size=3)
