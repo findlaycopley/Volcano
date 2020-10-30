@@ -40,7 +40,9 @@ plotVolcano <- function(volcanoClass, Names=FALSE, pThres=0.05, fcThres=2, PRINT
                                    colour="darkgrey",
                                    linetype="dashed") }
         if ( ! Names == FALSE) {
+                print("Subsetting data)
                 volcanoClass@plotdata$label <- subset(volcanoClass@plotdata$data, geneName %in% Names)
+                print(volcanoClass@plotdata$label)
                 volcanoClass@plots$volcano <- volcanoClass@plots$volcano +
                         geom_label_repel(data = volcanoClass@plotdata$label,
                                          aes(x=logFC,y=-log(Sig,10),
